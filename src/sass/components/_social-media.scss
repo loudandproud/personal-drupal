@@ -1,0 +1,24 @@
+.social-media > ul {
+  @include clearfix;
+  width: 107px;
+  margin: 0 auto;
+}
+
+.social-media-item {
+  list-style: none;
+  float: left;
+  margin-right: 8px;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.social-media-icon {
+  width: 30px;
+}
+
+.credits {
+  font-size: 10px;
+  margin-bottom: 30px;
+}

@@ -1,0 +1,19 @@
+name = Personal
+description = This is personal loudandproud theme.
+package = Core
+version = VERSION
+core = 7.x
+
+;css
+stylesheets[all][] = style.css
+stylesheets[all][] = system-menus.css
+
+;javascript
+scripts[] = js/jquery-2.2.1.min.js
+scripts[] = js/scripts.js
+
+;Regions
+regions[menu] = Menu
+regions[content] = Content
+regions[sidebar_first] = First Sidebar
+regions[footer] = Footer

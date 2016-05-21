@@ -1,0 +1,28 @@
+.back-to-home {
+    height: 80px;
+    line-height: 80px;
+
+  @include span(9 of 12);
+
+  > a {
+    font-size: 1.6rem;
+
+    @include susy-breakpoint(375px) {
+      font-size: 2rem;
+    }
+  }
+
+  @include susy-breakpoint($desktop-max-width) {
+    @include span(7 of 12);
+  }
+}
+
+.menu-wrapper {
+  @include span(3 of 12 last);
+
+  @include susy-breakpoint($desktop-max-width) {
+    @include span(5 of 12 last);
+  }
+}
+
+

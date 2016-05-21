@@ -1,0 +1,73 @@
+.navbar-block {
+  @include clearfix;
+  float: right;
+}
+
+.navbar-header {
+  height: 80px;
+  line-height: 80px;
+
+  @include susy-breakpoint($desktop-max-width) {
+    display: none;
+  }  
+}
+
+.navbar-toggle {
+  background-color: $color-base-white;
+  border: 0;
+
+}
+
+.menu-block {
+  display: none;
+  position: absolute;
+  left: 15px;
+  z-index: 2;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.09);
+
+
+  @include susy-breakpoint($desktop-max-width) {
+    display: block;
+    position: static;
+    height: 80px;
+    line-height: 80px;
+    box-shadow: none;
+  }
+}
+
+.menu-item {
+  list-style: none;
+  font-size: 1.6rem;
+  border-bottom: 1px solid $color-base-gray;
+
+  > a {
+    display: block;
+    padding: 10px;
+    background-color: $color-base-white;
+  }
+
+  @include susy-breakpoint($desktop-max-width) {  
+    float: left;
+    margin-right: 20px;
+    border: 0;
+
+    > a {
+      display: inline;
+      padding: 0;
+      background: none;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+//Reset drupal default style
+ul.menu li {
+  margin: 0;
+}
+
+ul li.leaf {
+  list-style: none;
+}

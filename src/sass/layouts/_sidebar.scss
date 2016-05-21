@@ -1,0 +1,28 @@
+.sidebar-item {
+  text-align: center;
+  margin-bottom: 30px;
+
+  > p {
+    margin-bottom: 30px;
+  }
+
+  &:after {
+    border-bottom: 1px solid $color-base-black;
+    content: "";
+    display: block;
+    margin: 0 auto 30px;
+    width: 25%;
+  }
+
+  &:last-child {
+    &:after {
+      display: none;
+    }
+  }
+
+}
+
+.profile-description {
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+}

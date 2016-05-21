@@ -1,0 +1,156 @@
+// -------------------------------------------------------------------------- //
+// General grid related variables
+// -------------------------------------------------------------------------- //
+// General grid related variables can be defined below.
+// -------------------------------------------------------------------------- //
+
+$mobile-max-width: 480px;
+$tablet-max-width: 1020px;
+$tablet-portrait-max-width: 768px;
+$tablet-landscape-max-width: 1024px;
+$mobile-landscape-max-width: $tablet-portrait-max-width;
+$desk-max-width: 860px;
+
+$short-screen-height: 800px;
+$shorter-screen-height: 600px;
+
+// Horizontal padding applied to wrapper element below desktop container width.
+$sidegutter-padding: 15px;
+
+// General padding / margin baseline (used in space() function)
+$space-base: 24px;
+
+
+// -------------------------------------------------------------------------- //
+// Susy grid settings
+// -------------------------------------------------------------------------- //
+// Grid settings for the Susy grid framework.
+//
+// Individual values can be extraced from the layout using `susy-get` function.
+// http://susydocs.oddbird.net/en/latest/settings/#susy-get
+//
+// General documentation found here.
+// http://susydocs.oddbird.net/en/latest/settings/
+// -------------------------------------------------------------------------- //
+
+//
+// Global Settings
+//
+
+$susy: (
+  // Susy settings here.
+);
+
+$mobile-layout: (
+  columns: 6
+);
+
+$tablet-layout: (
+  columns: 9,
+  container: $tablet-portrait-max-width 
+);
+
+$desk-layout: (
+  columns: 12,
+  container: $desk-max-width
+);
+
+
+// -------------------------------------------------------------------------- //
+// Breakpoints
+// -------------------------------------------------------------------------- //
+// Compile some settings into one variable for cleaner breakpoint declarations.
+//
+// ie: We can write:
+//   @include breakpoint($tablet){ ... }
+// instead of:
+//   @include breakpoint($tablet-max-width, $no-query: true){ ... }
+// -------------------------------------------------------------------------- //
+
+// There should be no mobile breakpoint because the base styles are for mobile.
+// $mobile: $mobile-max-width, 'no-query' true;
+// Note that `'no-query' true` is used instead of simply `true` since this
+// will be used directly with `@include breakpoint()` which requires the argument
+// to be labeled so it can find it when passed in a list of other settings.
+
+$mobile-portrait: (max-width $mobile-max-width) (orientation portrait), 'no-query' true;
+$mobile-landscape: (max-width $mobile-landscape-max-width) (orientation landscape), 'no-query' true;
+
+$tablet: $mobile-max-width, 'no-query' true;
+$tablet-portrait: (max-width $tablet-portrait-max-width) (orientation portrait), 'no-query' true;
+$tablet-landscape: (max-width $tablet-landscape-max-width) (orientation landscape), 'no-query' true;
+$tablet-only-landscape: (min-width $tablet-portrait-max-width) (max-width $tablet-landscape-max-width) (orientation landscape), 'no-query' true;
+
+$desk: $tablet-max-width, 'no-query' true;
+// On desktop screens that are short (i.e. macbook air with dock and browser
+// chrome you only get ~650px in height)
+$desk-short: (min-width $tablet-max-width) (max-height $short-screen-height), 'no-query' true;
+
+// Some crazy height based breakpoints
+$shortest-screen: max-height $mobile-max-width, 'no-query' true;
+$shorter-screen: max-height $shorter-screen-height, 'no-query' true;
+$short-screen: max-height $short-screen-height, 'no-query' true;
+
+// No Query does not need to be set for breakpoints before $desk, as they will
+// not be included anyways.
+$mobile-only: 0 $mobile-max-width;
+$tablet-only: $mobile-max-width $tablet-max-width;
+// Desktop only styles can simply use the $desk breakpoint.
+
+
+// -------------------------------------------------------------------------- //
+// Susy Breakpoints
+// -------------------------------------------------------------------------- //
+// Similar to breakpoint variables in the previous section, but these are to
+// be used with the `grid-breakpoint` mixin.
+//
+// The breakpoints should be a map containing the keys: 'query', 'layout', and
+// 'no-query'.
+//
+// For example:
+//
+// $grid-breakpoint-settings: (
+//   query: 1024px,
+//   layout: 9,
+//   no-query: 'no-query' true
+// );
+//
+// See also `_grid-breakpoint.mixin.scss`.
+//
+// Susy docs: http://susydocs.oddbird.net/en/latest/toolkit/#susy-breakpoint
+// -------------------------------------------------------------------------- //
+
+$susy-mobile: (
+  query: $mobile-only,
+  layout: $mobile-layout,
+  no-query: true
+);
+
+$susy-tablet: (
+  query: $tablet-only,
+  layout: $tablet-layout,
+  no-query: true
+);
+
+$susy-desk: (
+  query: ($tablet-max-width + 1px),
+  layout: $desk-layout,
+  no-query: true
+);
+
+
+// -------------------------------------------------------------------------- //
+// Susy Debug Settings
+// -------------------------------------------------------------------------- //
+// Toggled in sass/variables/debug.scss
+// -------------------------------------------------------------------------- //
+
+@if $debug-susy {
+  $susy: (
+    debug: (
+      image: show,
+      output: background,
+      color: rgba(0, 0, 0, 0.1),
+    ),
+  );
+}

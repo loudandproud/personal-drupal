@@ -1,0 +1,69 @@
+// Base colour definitions.
+// These should never be referenced directly. Only by using the palette mixin.
+
+$color-base-white:  #fff;
+$color-base-black:  #333;
+$color-base-orange: #f26732;
+$color-base-gray: #bbb;
+$color-dark-gray: #777;
+
+// Palettes colour map setup.
+
+// $palettes: (
+
+//   white: (
+//     pure: #fff,
+//     base:  $color-base-white,
+//     light: tint($color-base-white, 15%),
+//     dark:  #f8f8f8
+//   ),
+
+//   black: (
+//     pure: #000,
+//     base:  $color-base-black,
+//     light: tint($color-base-black, 15%),
+//     dark:  shade($color-base-black, 15%),
+//     shadow: rgba(#000, 0.6)
+//   ),
+
+//   orange: (
+//     base:   $color-base-orange,
+//     light:  tint($color-base-orange, 15%),
+//     dark:   #ff512f
+//   ),
+
+//   grey: (
+//     base:   #9ca3ab,
+//     light:  #c5cbd2,
+//     x-light:#dadde1
+//   ),
+
+//   blue: (
+//     base:   #212935,
+//     light:  #4d575f,
+//     dark:   #181b24
+//   ),
+
+//   green: (
+//     base:   #0ea960,
+//     light:  #2fd9a7,
+//     dark:   #035a47
+//   ),
+
+//   debug: (
+//     base: red,
+//   )
+// );
+
+// $palette-aliases: (
+//   black:            black,
+//   white:            white,
+//   text-color:       black,
+//   text-light:       grey,
+//   link-color:       orange,
+//   link-color-hover: grey,
+//   highlight-color:  orange,
+//   keyline-color:    grey,
+//   admin-primary:    blue,
+//   admin-secondary:  green
+// );

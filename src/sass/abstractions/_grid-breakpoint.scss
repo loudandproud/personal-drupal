@@ -1,0 +1,64 @@
+// -------------------------------------------------------------------------- //
+// Grid Breakpoint
+// -------------------------------------------------------------------------- //
+// `grid-breakpoint` is simply a wrapper around the `susy-breakpoint` mixin,
+// which is in turn a wrapper/helper around breakpoint.
+//
+// The purpose of this mixin is to create a simple way to declare context
+// specific breakpoints without repeating settings each time the susy-breakpoint
+// mixin is used.
+//
+// Settings maps should be defined in variables/_grid.scss
+// Settings maps should follow the naming pattern of: $susy-<breakpoint-name>
+// This way, regular breakpoints can be declared like this:
+//     @include breakpoint($tablet) { ... }
+// While susy-breakpoints can be declared like this:
+//     @include grid-breakpoint($susy-tablet) { ... }
+//
+// The settings parameter should be a map containing the keys: 'query',
+// 'layout', and 'no-query'. For example:
+//
+// $grid-breakpoint-settings: (
+//   query: 1024px,
+//   layout: 9,
+//   no-query: 'no-query' true
+// );
+// -------------------------------------------------------------------------- //
+
+@mixin grid-breakpoint($settings) {
+
+  // Instantiate variables;
+  $query: null;
+  $layout: null;
+  $no-query: null;
+
+  // Get query setting.
+  @if map-has-key($settings, query) {
+    $query:    map-get($settings, query);
+  }
+  @else {
+    @warn 'Missing `query` key in provided settings list for grid-breakpoint mixin';
+  }
+
+  // Get layout setting.
+  @if map-has-key($settings, layout) {
+    $layout:   map-get($settings, layout);
+  }
+  @else {
+    @warn 'Missing `layout` key in provided settings list for grid-breakpoint mixin';
+  }
+
+  // Get no-query setting.
+  @if map-has-key($settings, no-query) {
+    $no-query: map-get($settings, no-query);
+  }
+  @else {
+    @warn 'Missing `no-query` key in provided settings list for grid-breakpoint mixin';
+  }
+
+
+  // Pass settings to susy-breakpoint, include content.
+  @include susy-breakpoint($query, $layout, $no-query) {
+    @content;
+  }
+}
