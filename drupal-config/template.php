@@ -13,3 +13,8 @@ $element = $variables['element'];
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
+
+function hook_js_alter(&$javascript) {
+  // Swap out jQuery to use an updated version of the library. 
+  $javascript['misc/jquery.js']['data'] = drupal_get_path('module', 'jquery_update') . '/jquery.js';
+}
