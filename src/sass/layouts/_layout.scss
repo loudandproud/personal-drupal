@@ -4,7 +4,7 @@
   position: relative;
 　padding: 0 30px;
 
-  @media (min-width: $desktop-max-width) {
+  @media (min-width: $desktop-breakpoint) {
     @include container($desktop-max-width);
     padding: 0;
   }
@@ -13,7 +13,7 @@
 
 .main-content {
 
-  @include susy-breakpoint($desktop-max-width) {
+  @include susy-breakpoint($desktop-breakpoint) {
     @include span(9 of 12);
     margin-top: 20px;
   }
@@ -22,7 +22,7 @@
 .sidebar {
   margin-bottom: 60px;
 
-  @include susy-breakpoint($desktop-max-width) {
+  @include susy-breakpoint($desktop-breakpoint) {
     @include span(3 of 12 last);
     margin-top: 20px;
   }

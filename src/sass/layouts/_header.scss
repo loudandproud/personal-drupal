@@ -12,16 +12,16 @@
     }
   }
 
-  @include susy-breakpoint($desktop-max-width) {
-    @include span(7 of 12);
+  @include susy-breakpoint($tablet-breakpoint) {
+    @include span(6 of 12);
   }
 }
 
 .menu-wrapper {
   @include span(3 of 12 last);
 
-  @include susy-breakpoint($desktop-max-width) {
-    @include span(5 of 12 last);
+  @include susy-breakpoint($tablet-breakpoint) {
+    @include span(6 of 12 last);
   }
 }
 

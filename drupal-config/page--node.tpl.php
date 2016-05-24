@@ -17,7 +17,22 @@
 
 <div class="container">
   <div class="main-content">
+    <?php if(isset($node->created)):?>
+      <span class="post-date"><?php print date('M j, Y',$node->created); ?></span>
+    <?php endif; ?>
+
+    <?php print render($title_prefix); ?>
+      <?php if($title): ?>
+        <h2 class="post-title" <?php print $title_attributes; ?>><?php print $title; ?></h2>
+      <?php endif; ?>
+    <?php print render($title_suffix); ?>
+    <?php if ($tabs): ?>
+      <div class="tabs">
+        <?php print render($tabs); ?>
+      </div>
+    <?php endif; ?>    
     <?php print render($page['content']); ?>
+
   </div>
   <div class="sidebar">
     <?php print render($page['sidebar_first']); ?>

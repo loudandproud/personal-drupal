@@ -5,8 +5,8 @@
   text-align: center;
   margin-bottom: 10px;
 
-  @include susy-breakpoint($desktop-max-width) {
-    position: fixed;
-    bottom: 10px;
-  }
+  // @include susy-breakpoint($desktop-max-width) {
+  //   position: fixed;
+  //   bottom: 10px;
+  // }
 }

@@ -7,7 +7,7 @@
   height: 80px;
   line-height: 80px;
 
-  @include susy-breakpoint($desktop-max-width) {
+  @include susy-breakpoint($tablet-breakpoint) {
     display: none;
   }  
 }
@@ -26,7 +26,7 @@
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.09);
 
 
-  @include susy-breakpoint($desktop-max-width) {
+  @include susy-breakpoint($tablet-breakpoint) {
     display: block;
     position: static;
     height: 80px;
@@ -38,7 +38,7 @@
 .menu-item {
   list-style: none;
   font-size: 1.6rem;
-  border-bottom: 1px solid $color-base-gray;
+  border-bottom: 1px solid $color-light-gray;
 
   > a {
     display: block;
@@ -46,14 +46,17 @@
     background-color: $color-base-white;
   }
 
-  @include susy-breakpoint($desktop-max-width) {  
+  &:last-child {
+    border: 0;
+  }
+
+  @include susy-breakpoint($tablet-breakpoint) {  
     float: left;
     margin-right: 20px;
     border: 0;
 
     > a {
       display: inline;
-      padding: 0;
       background: none;
     }
 
@@ -70,4 +73,8 @@ ul.menu li {
 
 ul li.leaf {
   list-style: none;
+}
+
+li.leaf {
+  padding: 0;
 }

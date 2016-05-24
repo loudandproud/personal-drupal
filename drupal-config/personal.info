@@ -9,7 +9,6 @@ stylesheets[all][] = style.css
 stylesheets[all][] = system-menus.css
 
 ;javascript
-scripts[] = js/jquery-2.2.1.min.js
 scripts[] = js/scripts.js
 
 ;Regions
@@ -17,3 +16,5 @@ regions[menu] = Menu
 regions[content] = Content
 regions[sidebar_first] = First Sidebar
 regions[footer] = Footer
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
